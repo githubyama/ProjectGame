@@ -7,6 +7,7 @@ import com.sun.source.tree.WhileLoopTree;
 
 import java.io.IOException;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class GameFrame {
 
@@ -24,42 +25,49 @@ public class GameFrame {
 
     static final char OBSTACLE = Symbols.SOLID_SQUARE;
     static final char SPACESHIP = (Symbols.TRIANGLE_UP_POINTING_BLACK);
+
+
     private Random random = new Random();
 
 
+
+    //public static int random() {
+    //    return  ThreadLocalRandom.current(().nextInt();
+   // }
 
     public GameFrame () {
         screen.border();
         screen.putChar(20, 21, SPACESHIP, Screen.GREEN, Screen.BLACK);
 
-           obstacle = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
-           screen.putChar(obstacle.p.x, obstacle.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
 
-           obstacle2 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
-           screen.putChar(obstacle2.p.x, obstacle2.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+        obstacle = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
+        screen.putChar(obstacle.p.x, obstacle.p.y, OBSTACLE, Screen.BLUE, Screen.BLACK);
 
-        obstacle3 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        obstacle2 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
+        screen.putChar(obstacle2.p.x, obstacle2.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle3 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
         screen.putChar(obstacle3.p.x, obstacle3.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
 
-        obstacle4 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        obstacle4 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
         screen.putChar(obstacle4.p.x, obstacle4.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
 
-        obstacle5 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        obstacle5 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
         screen.putChar(obstacle5.p.x, obstacle5.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
 
-        obstacle6 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        obstacle6 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
         screen.putChar(obstacle6.p.x, obstacle6.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
 
-        obstacle7 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        obstacle7 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
         screen.putChar(obstacle7.p.x, obstacle7.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
 
-        obstacle8 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        obstacle8 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
         screen.putChar(obstacle8.p.x, obstacle8.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
 
-        obstacle9 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        obstacle9 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
         screen.putChar(obstacle9.p.x, obstacle9.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
 
-        obstacle10 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        obstacle10 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
         screen.putChar(obstacle10.p.x, obstacle10.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
 
     }
@@ -98,7 +106,7 @@ public class GameFrame {
 
     private void moveObstacles() {
 //OBSTACLE 1
-        screen.putChar(obstacle.p.x, obstacle.p.y, ' ', Screen.GREEN, Screen.BLACK);
+        screen.putChar(obstacle.p.x, obstacle.p.y, ' ', Screen.BLUE, Screen.BLACK);
         obstacle.p.y++;
         obstacle.p.x++;
         if (obstacle.p.y > 22) {
@@ -107,7 +115,7 @@ public class GameFrame {
         if (obstacle.p.x > 78) {
             obstacle.p.x = 2;
         }
-        screen.putChar(obstacle.p.x, obstacle.p.y, OBSTACLE, Screen.GREEN, Screen.BLACK);
+        screen.putChar(obstacle.p.x, obstacle.p.y, OBSTACLE, Screen.BLUE, Screen.BLACK);
 
 //OBSTACLE 2
         screen.putChar(obstacle2.p.x, obstacle2.p.y, ' ', Screen.YELLOW, Screen.BLACK);
