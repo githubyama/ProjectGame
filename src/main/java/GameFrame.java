@@ -11,15 +11,58 @@ import java.util.Random;
 public class GameFrame {
 
     Obstacle obstacle;
-    static final char OBSTACLE = 'X';
+    Obstacle obstacle2;
+    Obstacle obstacle3;
+    Obstacle obstacle4;
+    Obstacle obstacle5;
+    Obstacle obstacle6;
+    Obstacle obstacle7;
+    Obstacle obstacle8;
+    Obstacle obstacle9;
+    Obstacle obstacle10;
+
+
+    static final char OBSTACLE = Symbols.SOLID_SQUARE;
     static final char SPACESHIP = (Symbols.TRIANGLE_UP_POINTING_BLACK);
+    private Random random = new Random();
+
+
+
     public GameFrame () {
         screen.border();
-        screen.putChar(20,21, SPACESHIP, Screen.GREEN, Screen.BLACK);
-        obstacle = new Obstacle(new Position(10, 15));
-        screen.putChar(obstacle.p.x, obstacle.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
-    }
+        screen.putChar(20, 21, SPACESHIP, Screen.GREEN, Screen.BLACK);
 
+           obstacle = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+           screen.putChar(obstacle.p.x, obstacle.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+           obstacle2 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+           screen.putChar(obstacle2.p.x, obstacle2.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle3 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        screen.putChar(obstacle3.p.x, obstacle3.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle4 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        screen.putChar(obstacle4.p.x, obstacle4.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle5 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        screen.putChar(obstacle5.p.x, obstacle5.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle6 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        screen.putChar(obstacle6.p.x, obstacle6.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle7 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        screen.putChar(obstacle7.p.x, obstacle7.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle8 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        screen.putChar(obstacle8.p.x, obstacle8.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle9 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        screen.putChar(obstacle9.p.x, obstacle9.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle10 = new Obstacle(new Position(random.nextInt(77), random.nextInt(22)));
+        screen.putChar(obstacle10.p.x, obstacle10.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+    }
     private Screen screen = new Screen();
 
     Position spaceShipPosition = new Position(20, 21);
@@ -54,14 +97,114 @@ public class GameFrame {
     }
 
     private void moveObstacles() {
-        screen.putChar(obstacle.p.x, obstacle.p.y, ' ', Screen.BLACK, Screen.BLACK);
+//OBSTACLE 1
+        screen.putChar(obstacle.p.x, obstacle.p.y, ' ', Screen.GREEN, Screen.BLACK);
         obstacle.p.y++;
+        obstacle.p.x++;
         if (obstacle.p.y > 22) {
             obstacle.p.y = 2;
         }
-        screen.putChar(obstacle.p.x, obstacle.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+        if (obstacle.p.x > 78) {
+            obstacle.p.x = 2;
+        }
+        screen.putChar(obstacle.p.x, obstacle.p.y, OBSTACLE, Screen.GREEN, Screen.BLACK);
 
-    }
+//OBSTACLE 2
+        screen.putChar(obstacle2.p.x, obstacle2.p.y, ' ', Screen.YELLOW, Screen.BLACK);
+        obstacle2.p.y++;
+        obstacle2.p.x--;
+        if (obstacle2.p.y > 22) {
+            obstacle2.p.y = 2;
+        }
+        if (obstacle2.p.x < 2) {
+            obstacle2.p.x = 78;
+        }
+        screen.putChar(obstacle2.p.x, obstacle2.p.y, OBSTACLE, Screen.YELLOW, Screen.BLACK);
+//OBSTACLE 3
+        screen.putChar(obstacle3.p.x, obstacle3.p.y, ' ', Screen.BLACK, Screen.BLACK);
+        obstacle3.p.y++;
+        if (obstacle3.p.y > 22) {
+            obstacle3.p.y = 2;
+
+        }
+        screen.putChar(obstacle3.p.x, obstacle3.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+//OBSTACLE 4
+        screen.putChar(obstacle4.p.x, obstacle4.p.y, ' ', Screen.BLACK, Screen.BLACK);
+        obstacle4.p.y++;
+        if (obstacle4.p.y > 22) {
+            obstacle4.p.y = 2;
+
+        }
+        screen.putChar(obstacle4.p.x, obstacle4.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+//OBSTACLE 5
+        screen.putChar(obstacle5.p.x, obstacle5.p.y, ' ', Screen.BLACK, Screen.BLACK);
+        obstacle5.p.y++;
+        if (obstacle5.p.y > 22) {
+            obstacle5.p.y = 2;
+
+        }
+        screen.putChar(obstacle5.p.x, obstacle5.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+//OBSTACLE 6
+        screen.putChar(obstacle6.p.x, obstacle6.p.y, ' ', Screen.BLACK, Screen.BLACK);
+        obstacle6.p.y++;
+        if (obstacle6.p.y > 22) {
+            obstacle6.p.y = 2;
+
+        }
+        screen.putChar(obstacle6.p.x, obstacle6.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+//OBSTACLE 7
+
+        screen.putChar(obstacle7.p.x, obstacle7.p.y, ' ', Screen.GREEN, Screen.BLACK);
+        obstacle7.p.y++;
+        obstacle7.p.x++;
+        if (obstacle7.p.y > 22) {
+            obstacle7.p.y = 2;
+        }
+            if (obstacle7.p.x > 78) {
+                obstacle7.p.x = 2;
+            }
+            screen.putChar(obstacle7.p.x, obstacle7.p.y, OBSTACLE, Screen.GREEN, Screen.BLACK);
+
+//OBSTACLE 8
+
+            screen.putChar(obstacle8.p.x, obstacle8.p.y, ' ', Screen.YELLOW, Screen.BLACK);
+            obstacle8.p.y++;
+            obstacle8.p.x--;
+            if (obstacle8.p.y > 22) {
+                obstacle8.p.y = 2;
+            }
+                if (obstacle8.p.x < 2) {
+                    obstacle8.p.x = 78;
+                }
+                screen.putChar(obstacle8.p.x, obstacle8.p.y, OBSTACLE, Screen.YELLOW, Screen.BLACK);
+
+//OBSTACLE 9
+
+                screen.putChar(obstacle9.p.x, obstacle9.p.y, ' ', Screen.YELLOW, Screen.BLACK);
+                obstacle9.p.y++;
+                obstacle9.p.x--;
+                if (obstacle9.p.y > 22) {
+                    obstacle9.p.y = 2;
+                }
+                    if (obstacle9.p.x < 2) {
+                        obstacle9.p.x = 78;
+                    }
+                    screen.putChar(obstacle9.p.x, obstacle9.p.y, OBSTACLE, Screen.YELLOW, Screen.BLACK);
+
+//OBSTACLE 7
+
+                    screen.putChar(obstacle10.p.x, obstacle10.p.y, ' ', Screen.GREEN, Screen.BLACK);
+                    obstacle10.p.y++;
+                    obstacle10.p.x++;
+                    if (obstacle10.p.y > 22) {
+                        obstacle10.p.y = 2;
+                    }
+                        if (obstacle10.p.x > 78) {
+                            obstacle10.p.x = 2;
+                        }
+                        screen.putChar(obstacle10.p.x, obstacle10.p.y, OBSTACLE, Screen.GREEN, Screen.BLACK);
+                    }
+
 
     private void handleSpaceShip(Position spaceShipPosition, KeyStroke keyStroke) {
 
