@@ -395,7 +395,13 @@ public class GameFrame {
                     spaceShipPosition.x -= 1;
                     break;
 
+                case Escape:
+                    endTime = Instant.now();
+                    System.out.println("You are quiting the game! You were able to fly for " + Duration.between(startTime, endTime).toSeconds() + " seconds.");
+                    System.exit(0);
+
             }
+
             if (screen.getChar(spaceShipPosition.x, spaceShipPosition.y) == screen.BLOCK ||
                     screen.getChar(spaceShipPosition.x, spaceShipPosition.y) == OBSTACLE) {
 
