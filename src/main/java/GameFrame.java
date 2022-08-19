@@ -21,6 +21,17 @@ public class GameFrame {
     Obstacle obstacle8;
     Obstacle obstacle9;
     Obstacle obstacle10;
+// second round of obstacles
+    Obstacle obstacle11;
+    Obstacle obstacle12;
+    Obstacle obstacle13;
+    Obstacle obstacle14;
+    Obstacle obstacle15;
+    Obstacle obstacle16;
+    Obstacle obstacle17;
+    Obstacle obstacle18;
+    Obstacle obstacle19;
+    Obstacle obstacle20;
 
 
     static final char OBSTACLE = Symbols.SOLID_SQUARE;
@@ -38,7 +49,6 @@ public class GameFrame {
     public GameFrame () {
         screen.border();
         screen.putChar(20, 21, SPACESHIP, Screen.GREEN, Screen.BLACK);
-
 
         obstacle = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
         screen.putChar(obstacle.p.x, obstacle.p.y, OBSTACLE, Screen.BLUE, Screen.BLACK);
@@ -69,6 +79,38 @@ public class GameFrame {
 
         obstacle10 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
         screen.putChar(obstacle10.p.x, obstacle10.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+// Second group of obstacles
+
+        obstacle11 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
+        screen.putChar(obstacle11.p.x, obstacle11.p.y, OBSTACLE, Screen.BLUE, Screen.BLACK);
+
+        obstacle12 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
+        screen.putChar(obstacle12.p.x, obstacle12.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle13 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
+        screen.putChar(obstacle13.p.x, obstacle13.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle14 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
+        screen.putChar(obstacle14.p.x, obstacle14.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle15 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
+        screen.putChar(obstacle15.p.x, obstacle15.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle16 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
+        screen.putChar(obstacle16.p.x, obstacle16.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle17 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
+        screen.putChar(obstacle17.p.x, obstacle17.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle18 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
+        screen.putChar(obstacle18.p.x, obstacle18.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle19 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
+        screen.putChar(obstacle19.p.x, obstacle19.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+
+        obstacle20 = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
+        screen.putChar(obstacle20.p.x, obstacle20.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
 
     }
     private Screen screen = new Screen();
@@ -105,6 +147,7 @@ public class GameFrame {
     }
 
     private void moveObstacles() {
+
 //OBSTACLE 1
         screen.putChar(obstacle.p.x, obstacle.p.y, ' ', Screen.BLUE, Screen.BLACK);
         obstacle.p.y++;
@@ -199,7 +242,7 @@ public class GameFrame {
                     }
                     screen.putChar(obstacle9.p.x, obstacle9.p.y, OBSTACLE, Screen.YELLOW, Screen.BLACK);
 
-//OBSTACLE 7
+//OBSTACLE 10
 
                     screen.putChar(obstacle10.p.x, obstacle10.p.y, ' ', Screen.GREEN, Screen.BLACK);
                     obstacle10.p.y++;
@@ -211,7 +254,118 @@ public class GameFrame {
                             obstacle10.p.x = 2;
                         }
                         screen.putChar(obstacle10.p.x, obstacle10.p.y, OBSTACLE, Screen.GREEN, Screen.BLACK);
-                    }
+
+
+//OBSTACLE 11
+        screen.putChar(obstacle11.p.x, obstacle11.p.y, ' ', Screen.BLUE, Screen.BLACK);
+        obstacle11.p.y++;
+        obstacle11.p.x++;
+        if (obstacle11.p.y > 22) {
+            obstacle11.p.y = 2;
+        }
+        if (obstacle11.p.x > 78) {
+            obstacle11.p.x = 2;
+        }
+        screen.putChar(obstacle11.p.x, obstacle11.p.y, OBSTACLE, Screen.BLUE, Screen.BLACK);
+
+//OBSTACLE 12
+        screen.putChar(obstacle12.p.x, obstacle12.p.y, ' ', Screen.YELLOW, Screen.BLACK);
+        obstacle12.p.y++;
+        obstacle12.p.x--;
+        if (obstacle12.p.y > 22) {
+            obstacle12.p.y = 2;
+        }
+        if (obstacle12.p.x < 2) {
+            obstacle12.p.x = 78;
+        }
+        screen.putChar(obstacle12.p.x, obstacle12.p.y, OBSTACLE, Screen.YELLOW, Screen.BLACK);
+
+//OBSTACLE 13
+        screen.putChar(obstacle13.p.x, obstacle13.p.y, ' ', Screen.BLACK, Screen.BLACK);
+        obstacle13.p.y++;
+        if (obstacle13.p.y > 22) {
+            obstacle13.p.y = 2;
+        }
+        screen.putChar(obstacle13.p.x, obstacle13.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+//OBSTACLE 14
+
+        screen.putChar(obstacle14.p.x, obstacle14.p.y, ' ', Screen.BLACK, Screen.BLACK);
+        obstacle14.p.y++;
+        if (obstacle14.p.y > 22) {
+            obstacle14.p.y = 2;
+
+        }
+        screen.putChar(obstacle14.p.x, obstacle14.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+//OBSTACLE 15
+        screen.putChar(obstacle15.p.x, obstacle15.p.y, ' ', Screen.BLACK, Screen.BLACK);
+        obstacle15.p.y++;
+        if (obstacle15.p.y > 22) {
+            obstacle15.p.y = 2;
+
+        }
+        screen.putChar(obstacle15.p.x, obstacle15.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+//OBSTACLE 16
+        screen.putChar(obstacle16.p.x, obstacle16.p.y, ' ', Screen.BLACK, Screen.BLACK);
+        obstacle16.p.y++;
+        if (obstacle16.p.y > 22) {
+            obstacle16.p.y = 2;
+
+        }
+        screen.putChar(obstacle16.p.x, obstacle16.p.y, OBSTACLE, Screen.WHITE, Screen.BLACK);
+//OBSTACLE 17
+
+        screen.putChar(obstacle17.p.x, obstacle17.p.y, ' ', Screen.GREEN, Screen.BLACK);
+        obstacle17.p.y++;
+        obstacle17.p.x++;
+        if (obstacle17.p.y > 22) {
+            obstacle17.p.y = 2;
+        }
+        if (obstacle17.p.x > 78) {
+            obstacle17.p.x = 2;
+        }
+        screen.putChar(obstacle17.p.x, obstacle17.p.y, OBSTACLE, Screen.GREEN, Screen.BLACK);
+
+//OBSTACLE 18
+
+        screen.putChar(obstacle18.p.x, obstacle18.p.y, ' ', Screen.YELLOW, Screen.BLACK);
+        obstacle18.p.y++;
+        obstacle18.p.x--;
+        if (obstacle18.p.y > 22) {
+            obstacle18.p.y = 2;
+        }
+        if (obstacle18.p.x < 2) {
+            obstacle18.p.x = 78;
+        }
+        screen.putChar(obstacle18.p.x, obstacle18.p.y, OBSTACLE, Screen.YELLOW, Screen.BLACK);
+
+//OBSTACLE 19
+
+        screen.putChar(obstacle19.p.x, obstacle19.p.y, ' ', Screen.YELLOW, Screen.BLACK);
+        obstacle19.p.y++;
+        obstacle19.p.x--;
+        if (obstacle19.p.y > 22) {
+            obstacle19.p.y = 2;
+        }
+        if (obstacle19.p.x < 2) {
+            obstacle19.p.x = 78;
+        }
+        screen.putChar(obstacle19.p.x, obstacle19.p.y, OBSTACLE, Screen.YELLOW, Screen.BLACK);
+
+//OBSTACLE 20
+
+        screen.putChar(obstacle20.p.x, obstacle20.p.y, ' ', Screen.GREEN, Screen.BLACK);
+        obstacle20.p.y++;
+        obstacle20.p.x++;
+        if (obstacle20.p.y > 22) {
+            obstacle20.p.y = 2;
+        }
+        if (obstacle20.p.x > 78) {
+            obstacle20.p.x = 2;
+        }
+        screen.putChar(obstacle20.p.x, obstacle20.p.y, OBSTACLE, Screen.GREEN, Screen.BLACK);
+
+
+    }
 
 
     private void handleSpaceShip(Position spaceShipPosition, KeyStroke keyStroke) {
