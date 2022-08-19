@@ -11,10 +11,14 @@ public class Screen {
     public static final TextColor
             WHITE = new TextColor.RGB(255,255,255),
             BLACK = new TextColor.RGB(0,0,0),
+
+            LIGHTBLUE = new TextColor.RGB (0, 255, 255),
             BLUE = new TextColor.RGB(0,0,255),
             YELLOW = new TextColor.RGB(255,255,0),
             GREEN = new TextColor.RGB(0,255,0),
             RED = new TextColor.RGB(255,0,0);
+
+
 
     private char [][] array =new char[80][24]; // remembers the chars in screen
 

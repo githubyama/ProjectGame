@@ -1,16 +1,22 @@
 import com.googlecode.lanterna.Symbols;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.sun.source.tree.WhileLoopTree;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Random;
+import java.util.Timer;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class GameFrame {
-
+    Instant startTime;
+    Instant endTime;
     Obstacle obstacle;
     Obstacle obstacle2;
     Obstacle obstacle3;
@@ -48,7 +54,7 @@ public class GameFrame {
 
     public GameFrame () {
         screen.border();
-        screen.putChar(20, 21, SPACESHIP, Screen.GREEN, Screen.BLACK);
+        screen.putChar(20, 21, SPACESHIP, Screen.LIGHTBLUE, Screen.BLACK);
 
         obstacle = new Obstacle(new Position(ThreadLocalRandom.current().nextInt(2,77), ThreadLocalRandom.current().nextInt(2,22)));
         screen.putChar(obstacle.p.x, obstacle.p.y, OBSTACLE, Screen.BLUE, Screen.BLACK);
@@ -123,6 +129,8 @@ public class GameFrame {
 
         KeyStroke latestKeyStroke = null;
 
+        startTime = Instant.now();
+
         boolean continueReadingInput = true;
         while (continueReadingInput) {
 
@@ -143,6 +151,7 @@ public class GameFrame {
 
             } while (keyStroke == null);
             latestKeyStroke = keyStroke;
+
         }
     }
 
@@ -367,10 +376,10 @@ public class GameFrame {
 
     }
 
-
     private void handleSpaceShip(Position spaceShipPosition, KeyStroke keyStroke) {
 
             // Handle player
+
             Position oldPosition = new Position(spaceShipPosition.getX(), spaceShipPosition.getY());
             switch (keyStroke.getKeyType()) {
                 case ArrowDown:
@@ -387,18 +396,18 @@ public class GameFrame {
                     break;
 
             }
-            if (screen.getChar(spaceShipPosition.x, spaceShipPosition.y) == screen.BLOCK) {
-                spaceShipPosition.x = oldPosition.x;
-                spaceShipPosition.y = oldPosition.y;
+            if (screen.getChar(spaceShipPosition.x, spaceShipPosition.y) == screen.BLOCK ||
+                    screen.getChar(spaceShipPosition.x, spaceShipPosition.y) == OBSTACLE) {
 
-            } else if (screen.getChar(spaceShipPosition.x, spaceShipPosition.y) == OBSTACLE) {
-                System.out.println("Game Over!");
+                endTime = Instant.now();
+
+                System.out.println("Game Over! You were able to fly for  " + Duration.between(startTime, endTime).toSeconds() + " seconds.");
                 System.exit(0);
 
             } else {
 
                 screen.putChar(oldPosition.x, oldPosition.y, ' ');
-                screen.putChar(spaceShipPosition.x, spaceShipPosition.y, SPACESHIP, screen.GREEN, screen.BLACK);
+                screen.putChar(spaceShipPosition.x, spaceShipPosition.y, SPACESHIP, screen.LIGHTBLUE, screen.BLACK);
 
             }
         }
